@@ -3,7 +3,7 @@
    // and returns new results to be appended to DOM
 var showQuestion = function(question) {
 
-  
+
     return result;
 };
 
@@ -17,10 +17,16 @@ var showSearchResults = function(query, resultNum) {
 
 
 // takes a string from input and searches
-// for unaswered questions on StackOverflow API. 
+// for unaswered questions on StackOverflow API.
 
 var getUnanswered = function(tags) {
+  var request = new XMLHttpRequest();
+  var url = "https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged=" + tags + "&site=stackoverflow";
+  request.open("GET", url, false);
+  request.send();
 
+  console.log(request.status);
+  console.log(request.response);
 };
 
 
