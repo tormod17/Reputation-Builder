@@ -37,7 +37,11 @@ var getUnanswered = function(tags) {
 };
 
 var getTopAnswerers = function(tags) {
-
+  var request = new XMLHttpRequest();
+  var url = "https://api.stackexchange.com/" + tags + "/2.2/tags/css/top-answerers/all_time?site=stackoverflow";
+  requet.open("GET", url, false);
+  request.send();
+  
 };
 
 
