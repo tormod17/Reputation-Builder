@@ -1,9 +1,22 @@
-
+//link, title, time, date, user rep
    // this function takes the question object returned by the StackOverflow request
    // and returns new results to be appended to DOM
-var showQuestion = function(question) {
+var showQuestion = function(questions) {
+    questions.items.sort(function(a,b) {
+        return a.owner.reputation - b.owner.reputation;
+    });
 
-  
+    result = [];
+
+    questions.items.forEach(function(el) {
+        result.append({
+            title: el.title,
+            link: el.link,
+            creation: el.creation_date,
+            rep: el.owner.reputation,
+        });
+    });
+
     return result;
 };
 
@@ -17,18 +30,27 @@ var showSearchResults = function(query, resultNum) {
 
 
 // takes a string from input and searches
-// for unaswered questions on StackOverflow API. 
+// for unaswered questions on StackOverflow API.
 
 var getUnanswered = function(tags) {
 
 };
 
+var getTopAnswerers = function(tags) {
+
+};
+
 
 document.getElementById('unanswered-getter').addEventListener('submit',function(e){
-	  e.preventDefault();
-	  document.getElementById('results').innerHTML+="";
-	  var tags = document.getElementById('tags').value;
-	  getUnanswered(tags);
+    e.preventDefault();
+    document.getElementById('results').innerHTML+="";
+    var tags = document.querySelector('#unanswered-getter input[type="text"]').value;
+    getUnanswered(tags);
+});
 
-
+document.getElementById('inspiration-getter').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('results').innerHTML+="";
+    var tags = document.querySelector('#inspiration-getter input[type="text"]').value;
+    getTopAnswerers(tags);
 });
