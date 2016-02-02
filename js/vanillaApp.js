@@ -33,6 +33,15 @@ var showSearchResults = function(query, resultNum) {
 // for unaswered questions on StackOverflow API.
 
 var getUnanswered = function(tags) {
+  var request = new XMLHttpRequest();
+  var url = "https://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged=" + tags + "&site=stackoverflow";
+  request.open("GET", url, false);
+  request.send();
+
+  console.log(request.status);
+  console.log(request.response);
+
+  var ans = showQuestion(request.response);
 
 };
 
