@@ -40,6 +40,9 @@ var getUnanswered = function(tags) {
 
   console.log(request.status);
   console.log(request.response);
+
+  var ans = showQuestion(request.response);
+
 };
 
 var getTopAnswerers = function(tags) {
@@ -47,8 +50,6 @@ var getTopAnswerers = function(tags) {
 };
 
 
-<<<<<<< HEAD
-=======
 document.getElementById('unanswered-getter').addEventListener('submit',function(e){
     e.preventDefault();
     document.getElementById('results').innerHTML+="";
@@ -61,5 +62,4 @@ document.getElementById('inspiration-getter').addEventListener('submit',function
     document.getElementById('results').innerHTML+="";
     var tags = document.querySelector('#inspiration-getter input[type="text"]').value;
     getTopAnswerers(tags);
->>>>>>> origin
 });
