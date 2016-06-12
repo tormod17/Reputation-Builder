@@ -10,4 +10,4 @@ Take a tour of the html css and get an understanding of what's going on.
 
 ##Code 
 
-Write the javascript you need to make the request to the API and handle the response. Filter the response according to the brief. Connect your data to the DOM.  
+Write the javascript you need to make the request to the API and handle the response. Filter the response according to the brief. Connect your data to the DOM.  Remember to commit and DRY. 
